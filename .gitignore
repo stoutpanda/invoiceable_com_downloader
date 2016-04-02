@@ -1,0 +1,7 @@
+#ignore csv files downloaded from invoiceable. 
+*.csv
+
+#ignore cred file
+invoiceable_secure.txt
+
+
