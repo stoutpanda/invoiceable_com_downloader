@@ -6,13 +6,13 @@ include Imports
 invoice_file = 'invoices.csv'
 user_file = 'user.txt'
 output_dir = 'pdf/'
-invoices = Invoices.new
+collection = Invoices.new
 
 
 
-import_invoices(invoice_file,invoices)
+import_invoices(invoice_file,collection)
 
-p invoices
+collection.invoices.map { |i| p i.uri_key }
 
 
 

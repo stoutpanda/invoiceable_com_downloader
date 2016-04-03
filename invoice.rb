@@ -1,6 +1,4 @@
 require 'date'
-require "addressable/uri"
-
 
 
 class Invoice
@@ -11,19 +9,14 @@ class Invoice
     @date = date
     @client_id = client_id
     @uri = uri
-    @uri_key = uri
-  end
-
-  def clean_date(date)
-    space_free = date.delete(" ")
-    DateTime.strptime(space_free, '%F%T')
+    @uri_key = stripkey(uri)
   end
 
   def stripkey(uri)
-    link = Addressable::URI.parse(uri)
-    link.path
+    link = uri.split("/")[-1]
+
   end
-  
+
 end
 
 class Invoices
