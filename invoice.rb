@@ -1,0 +1,31 @@
+require 'date'
+require "addressable/uri"
+
+
+
+class Invoice
+
+  attr_reader :id, :date, :client_id, :uri, :uri_key
+  #parse csv and return as an array of hashes with id, date, uri, client_id from the provided csv file.
+
+
+ def initialize(id,date,client_id,uri)
+    @id = id
+    @date = date
+    @client_id = client_id
+    @uri = uri
+    @uri_key = uri
+  end
+
+  def clean_date(date)
+    space_free = date.delete(" ")
+    DateTime.strptime(space_free, '%F%T')
+  end
+
+  def stripkey(uri)
+    link = Addressable::URI.parse(uri)
+    link.path
+  end
+
+
+end
