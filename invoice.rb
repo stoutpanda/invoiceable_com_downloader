@@ -4,12 +4,9 @@ require "addressable/uri"
 
 
 class Invoice
-
   attr_reader :id, :date, :client_id, :uri, :uri_key
-  #parse csv and return as an array of hashes with id, date, uri, client_id from the provided csv file.
 
-
- def initialize(id,date,client_id,uri)
+  def initialize(id,date,client_id,uri)
     @id = id
     @date = date
     @client_id = client_id
@@ -26,16 +23,19 @@ class Invoice
     link = Addressable::URI.parse(uri)
     link.path
   end
-
-
+  
 end
 
 class Invoices
+
   attr_accessor :invoices
+
   def initialize
     @invoices = []
   end
+
   def add_invoice(invoice)
     @invoices << invoice
   end
+
 end
