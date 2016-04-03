@@ -2,6 +2,3 @@
 an account.
 
 Enter your account credentials in the invoiceable_credentials_example.csv file and save it as invoiceable_secure.csv.
-
-
-Requires addressable gem: https://github.com/sporkmonger/addressable / http://addressable.rubyforge.org/
