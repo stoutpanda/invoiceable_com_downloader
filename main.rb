@@ -6,9 +6,12 @@ invoice_file = 'invoices.csv'
 user_file = 'user.txt'
 output_dir = 'pdf/'
 
+
 include Imports
 
 import_invoices(invoice_file)
+
+p @invoices
 
 
 
