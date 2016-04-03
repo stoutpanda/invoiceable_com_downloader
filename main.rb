@@ -1,17 +1,18 @@
 require_relative 'invoice'
 require_relative 'import'
 #require_relative 'users'
+include Imports
 
 invoice_file = 'invoices.csv'
 user_file = 'user.txt'
 output_dir = 'pdf/'
+invoices = Invoices.new
 
 
-include Imports
 
-import_invoices(invoice_file)
+import_invoices(invoice_file,invoices)
 
-p @invoices
+p invoices
 
 
 
