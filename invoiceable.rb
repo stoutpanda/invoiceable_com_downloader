@@ -1,15 +1,15 @@
 require 'csv'
 require 'datetime'
+require "addressable/uri"
 
 class Invoiceable
   attr_reader :id, :date, :client_id, :url, :url_key
   #parse csv and return as an array of hashes with id, date, uri, client_id from the provided csv file.
 
   def import_csv
-    invoices = CSV.foreach($invoice_file, :headers => true) do |row|
-      Invoiceable.new
-
-
+    CSV.foreach($invoice_file, :headers => true) do |row|
+      Invoiceable.new(row[:id],row[:date],row[:client_id],row[:uri])
+    end
   end
 
   def initialize(id,date,client_id,url,url_key)
