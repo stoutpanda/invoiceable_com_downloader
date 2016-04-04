@@ -24,6 +24,7 @@ class Invoice
     download_url = URI.parse("https://secure.invoiceable.com/downloadinvoice/#{@uri_key}")
     pbar = nil
     File.open("#{output_dir}#{@ref}-#{@date.to_s}.pdf", "wb") do |file|
+      puts "Downloading invoice: #{@ref.to_s}!"
       file.write open(download_url.to_s,
         :content_length_proc => lambda { |t|
         if t && 0 < t
