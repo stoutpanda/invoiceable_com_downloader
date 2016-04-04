@@ -9,7 +9,7 @@ collection = Invoices.new
 
 import_invoices(invoice_file,collection)
 
-collection.invoices.download_all_invoices(output_dir)
+collection.download_all_invoices(output_dir)
 
 
  #create a new object for each with accessbile infomration above.
