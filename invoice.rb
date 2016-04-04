@@ -24,7 +24,8 @@ class Invoice
     download_url = URI.parse("https://secure.invoiceable.com/downloadinvoice/#{@uri_key}")
     pbar = nil
     File.open("#{output_dir}#{@ref}-#{@date.to_s}.pdf", "wb") do |file|
-      puts "Downloading invoice: #{@ref.to_s}!"
+      puts "Downloading invoice: #{@ref.to_s}! \n"
+      #Ruby progress bar required for below. If you don't need it, you can remove everything after the download_url.to_s until the ).read
       file.write open(download_url.to_s,
         :content_length_proc => lambda { |t|
         if t && 0 < t
