@@ -11,10 +11,6 @@ collection = Invoices.new
 user = import_user(user_file)
 import_invoices(invoice_file,collection)
 
-
-collection.invoices.map { |i| p i.uri_key }
-puts user.inspect
-
 collection.invoices.first.download_invoice(output_dir)
 
 

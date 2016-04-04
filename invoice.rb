@@ -7,7 +7,7 @@ class Invoice
 
   def initialize(id,date,client_id,uri,ref)
     @id = id
-    @date = date
+    @date = date.to_date
     @client_id = client_id
     @uri = uri
     @uri_key = stripkey(uri)
@@ -20,7 +20,7 @@ class Invoice
 
   def download_invoice(output_dir)
     download_url = URI.parse("https://secure.invoiceable.com/downloadinvoice/#{@uri_key}")
-    File.open("#{output_dir}#{id}", "wb") do |file|
+    File.open("#{output_dir}#{@ref}-#{@date.to_s}.pdf", "wb") do |file|
       file.write open(download_url.to_s).read
     end
   end
