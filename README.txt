@@ -1,4 +1,7 @@
-  Invoiceable.com provides a great way to manage invoices but provides no easy way to download all of your invoices in mass. This is a simple ruby program to download all invoices for a
-an account.
+Tool to download invoices in mass from invoiceable.com. Written for Ruby 2.3.0
 
-Enter your account credentials in the invoiceable_credentials_example.csv file and save it as invoiceable_secure.csv.
+1. Login to your account.
+2. Download the csv file on the invoice page for the list of invoices you would like to download.
+3. Place it in the root folder and name it invoices.csv.
+
+4. Run ruby main.rb
