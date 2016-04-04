@@ -1,7 +1,8 @@
-#ignore csv files downloaded from invoiceable. 
+#ignore csv files downloaded from invoiceable.
 *.csv
 
 #ignore cred file
-invoiceable_secure.txt
+invoiceable_secret.yml
 
-
+#ignore pdf directory
+pdf/*

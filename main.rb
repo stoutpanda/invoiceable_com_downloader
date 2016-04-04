@@ -1,18 +1,19 @@
 require_relative 'invoice'
 require_relative 'import'
-#require_relative 'users'
+require_relative 'user'
 include Imports
 
 invoice_file = 'invoices.csv'
-user_file = 'user.txt'
+user_file = 'invoiceable_secret.yml'
 output_dir = 'pdf/'
 collection = Invoices.new
 
-
-
+user = import_user(user_file)
 import_invoices(invoice_file,collection)
 
+
 collection.invoices.map { |i| p i.uri_key }
+puts user.inspect
 
 
 
