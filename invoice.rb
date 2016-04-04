@@ -1,4 +1,5 @@
 require 'date'
+require 'open-uri'
 
 
 class Invoice
@@ -14,9 +15,14 @@ class Invoice
 
   def stripkey(uri)
     link = uri.split("/")[-1]
-
   end
 
+  def download_invoice(output_dir)
+    download_url = URI.parse("https://secure.invoiceable.com/downloadinvoice/#{@uri_key}")
+    File.open("#{output_dir}test.pdf", "wb") do |file|
+      file.write open(download_url.to_s).read
+    end
+  end
 end
 
 class Invoices
