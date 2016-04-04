@@ -1,17 +1,15 @@
 require_relative 'invoice'
 require_relative 'import'
-require_relative 'user'
 include Imports
 
 invoice_file = 'invoices.csv'
-user_file = 'invoiceable_secret.yml'
 output_dir = 'pdf/'
 collection = Invoices.new
 
-user = import_user(user_file)
+
 import_invoices(invoice_file,collection)
 
-collection.invoices.first.download_invoice(output_dir)
+collection.invoices.download_all_invoices(output_dir)
 
 
  #create a new object for each with accessbile infomration above.
